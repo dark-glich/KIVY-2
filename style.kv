@@ -1,0 +1,45 @@
+<ball>
+    size: 18, 18
+    
+    canvas: 
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<paddle>
+    size: 15, 125
+    canvas:
+        Rectangle: 
+            pos : self.pos
+            size: self.size
+
+<app>:
+    pongball : pong_ball
+    player : player
+    opponent : opponent 
+    canvas:
+        Rectangle:
+            pos: self.center_x-5, 0
+            size: 3, self.height
+    Label: 
+        font_size: 72
+        center_x: root.center_x - 4
+        center_y: root.height - 50
+        text:"0"
+
+
+    ball:
+        id: pong_ball
+        center: self.parent.center
+
+    paddle:
+        id : player
+        center_x : 22
+        y : root.center_y - 60
+
+    paddle:
+        id : opponent
+        center_x : root.width-30
+        y : root.center_y - 60
+    
+        
