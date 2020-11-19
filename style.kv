@@ -2,6 +2,8 @@
     size: 18, 18
     
     canvas: 
+        Color: 
+            rgba: 0, 0.6 , 1, 1
         Ellipse:
             pos: self.pos
             size: self.size
@@ -9,6 +11,8 @@
 <paddle>
     size: 15, 125
     canvas:
+        Color: 
+            rgba: 1, 0.6 , 0, 1
         Rectangle: 
             pos : self.pos
             size: self.size
@@ -16,16 +20,30 @@
 <app>:
     pongball : pong_ball
     player : player
-    opponent : opponent 
+    opponent : opponent
     canvas:
         Rectangle:
-            pos: self.center_x-5, 0
-            size: 3, self.height
+            pos: self.center_x-5, 20
+            size: 3, self.height - 100
+
+        Rectangle:
+            pos: 0, 20
+            size: self.width , 3
+
+        Rectangle:
+            pos: 0, self.height - 20
+            size: self.width , 3
+
+        Ellipse:
+            pos:self.center_x-90, self.center_y -85
+            size:180,180
+            source:'circle.png'
+
     Label: 
         font_size: 72
         center_x: root.center_x - 4
         center_y: root.height - 50
-        text:"0"
+        text: str(root.score)
 
 
     ball:
